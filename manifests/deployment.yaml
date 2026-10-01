@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: msn-playground
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: msn-playground
+  template:
+    metadata:
+      labels:
+        app: msn-playground
+    spec:
+      containers:
+      - name: msn
+        image: wil42/playground:v1
+        ports:
+        - containerPort: 8888
